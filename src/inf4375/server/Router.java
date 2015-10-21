@@ -96,6 +96,11 @@ public class Router {
         response.send(out);
     }
 
+    // Send a HTML view as response.
+    public void sendResponse(Integer status, String reason, View view) {
+        sendResponse(status, reason, view.render());
+    }
+
     // Send an HTTP response containing an error message formated with HTML.
     public void sendError(Integer status, String reason) {
         String body = "<h1>" + status + ": " + reason + "</h1>";
